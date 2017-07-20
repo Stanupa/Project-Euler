@@ -5,9 +5,20 @@
     By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 */
 
-
 public class Problem2 {
     public static void main(String[] args) {
-        
+        long[] fibList = new long[50];
+        fibList[0] = 1;
+        fibList[1] = 2;
+        for (int i = 2; i < fibList.length; i++) {
+            fibList[i] = fibList[i - 1] + fibList[i - 2];
+        }
+        long sum = 0;
+        for (int i = 0; i < fibList.length; i++) {
+            if ((fibList[i] % 2 == 0) && (fibList[i] <= 4000000)) {
+                sum += fibList[i];
+            }
+        }
+        System.out.println(sum);
     }
 }
